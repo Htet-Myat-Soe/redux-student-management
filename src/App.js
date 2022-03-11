@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Student from "./pages/Student";
+import AddStudent from "./pages/AddStudent";
+import EditStudent from "./pages/EditStudent";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container py-5">
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Student} />
+          <Route path='/add-students' component={AddStudent} />
+          <Route path='/edit-students/:id' component={EditStudent} />
+
+        </Switch>
+      </Router>
     </div>
   );
 }
